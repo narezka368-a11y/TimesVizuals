@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TimesVizuals — визуальный клиент для Minecraft 1.21.4</title>
+<meta name="description" content="TimesVizuals — клиентский мод для Minecraft 1.21.4 на Fabric: свой ClickGui, HUD-эдитор, менеджер аккаунтов, кастомное меню и 38 модулей.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="">
+      <span>Times<b>Vizuals</b></span>
+    </div>
+    <nav>
+      <a href="#features">Возможности</a>
+      <a href="#modules">Модули</a>
+      <a href="#install">Установка</a>
+      <a href="#download">Скачать</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Times<span>Vizuals</span></h1>
+    <p class="tag">Клиентский мод для Minecraft 1.21.4 на Fabric: свой интерфейс, HUD-эдитор, менеджер аккаунтов и 38 модулей — в одном jar на 470 КБ.</p>
+    <div class="chips">
+      <span class="chip">Minecraft 1.21.4</span>
+      <span class="chip">Fabric Loader 0.16+</span>
+      <span class="chip">Java 21</span>
+      <span class="chip">Fabric API</span>
+      <span class="chip">470 КБ</span>
+    </div>
+    <a class="btn" href="download/timesvizuals-1.0-1.21.4.jar" download>Скачать мод</a>
+    <a class="btn ghost" href="#install">Как установить</a>
+    <p class="note">RShift — меню, RCtrl — HUD-эдитор. Работает в одиночной игре и на серверах.</p>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Возможности</h2>
+    <p class="sub">Всё своё: интерфейс, меню, аккаунты, рендер — без чужих библиотек.</p>
+
+    <div class="stats">
+      <div class="stat">38<small>модулей</small></div>
+      <div class="stat">6<small>категорий</small></div>
+      <div class="stat">3<small>стиля TargetHud</small></div>
+      <div class="stat">470 КБ<small>вес сборки</small></div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Свой ClickGui</h3>
+        <p>Тёмное стекло, акцентный градиент, поиск, раскрывающиеся настройки, тултипы, плавные анимации и скользящий индикатор категорий.</p>
+      </div>
+      <div class="card">
+        <h3>HUD-эдитор</h3>
+        <p>RCtrl — и любой элемент двигается мышью с сеткой 2 px. Выключенные элементы видны как призрачные плашки. Позиции сохраняются сами.</p>
+      </div>
+      <div class="card">
+        <h3>Менеджер аккаунтов</h3>
+        <p>Список ников, создание, удаление, Random, переключение сессии в один клик. Хранится в <code>config/timesvizuals-alts.json</code>.</p>
+      </div>
+      <div class="card">
+        <h3>Своё главное меню</h3>
+        <p>Анимированный градиент, частицы, часы, быстрый доступ к аккаунтам и настройкам. Заменяет ванильный титульник.</p>
+      </div>
+      <div class="card">
+        <h3>Метки клиента</h3>
+        <p>Бейдж ⟦TV⟧ в табе и чате для тех, кто тоже с клиентом. Список ведётся локально, есть авто-детект по маркеру.</p>
+      </div>
+      <div class="card">
+        <h3>Оптимизации</h3>
+        <p>Кэш ширин текста, без blur в HUD, проекция мира без аллокаций, троттлинг опроса клавиш, ленивая пересборка списков.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="modules">
+  <div class="wrap">
+    <h2>Модули</h2>
+    <p class="sub">38 модулей в шести категориях. Клик по карточке в игре — включение, правый клик — настройки.</p>
+
+    <div class="modules">
+      <div class="cat">
+        <h3>Render <span>13</span></h3>
+        <ul>
+          <li>Fullbright</li><li>Zoom</li><li>TargetEsp</li><li>ChinaHat</li>
+          <li>Trails</li><li>JumpCircles</li><li>Crosshair</li><li>NoRender</li>
+          <li>Trajectories</li><li>ViewModel</li><li>HitMarker</li>
+          <li>AspectRatio</li><li>SkyChanger</li>
+        </ul>
+      </div>
+      <div class="cat">
+        <h3>HUD <span>11</span></h3>
+        <ul>
+          <li>Watermark</li><li>Info</li><li>ArrayList</li><li>Keybinds</li>
+          <li>Potions</li><li>Coordinates</li><li>Armor</li><li>TargetHud</li>
+          <li>TotemCounter</li><li>StaffList</li><li>Time</li>
+        </ul>
+      </div>
+      <div class="cat">
+        <h3>Player <span>5</span></h3>
+        <ul>
+          <li>AutoAccept</li><li>AutoReply</li><li>DeathCoords</li>
+          <li>Waypoints</li><li>AutoRespawn</li>
+        </ul>
+      </div>
+      <div class="cat">
+        <h3>Combat <span>4</span></h3>
+        <ul>
+          <li>AutoTotem</li><li>AutoArmor</li><li>AutoSwap</li><li>ShiftTap</li>
+        </ul>
+      </div>
+      <div class="cat">
+        <h3>Client <span>4</span></h3>
+        <ul>
+          <li>Interface</li><li>MainMenu</li><li>ClientTags</li><li>DiscordRpc</li>
+        </ul>
+      </div>
+      <div class="cat">
+        <h3>Movement <span>1</span></h3>
+        <ul><li>Sprint</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Установка</h2>
+    <p class="sub">Пять минут, если Fabric уже стоит.</p>
+    <ol class="steps">
+      <li>Поставь <b>Fabric Loader</b> для Minecraft <b>1.21.4</b> и запусти игру один раз.</li>
+      <li>Скачай <a href="download/timesvizuals-1.0-1.21.4.jar">timesvizuals-1.0-1.21.4.jar</a>.</li>
+      <li>Положи jar в папку <code>mods</code> своего профиля.</li>
+      <li>Добавь туда же <b>Fabric API</b> под 1.21.4.</li>
+      <li>Запусти игру: <b>RShift</b> — меню, <b>RCtrl</b> — HUD-эдитор.</li>
+    </ol>
+
+    <details>
+      <summary>Игра не запускается / чёрный экран</summary>
+      <p>Проверь, что версия Minecraft ровно 1.21.4 и установлена Java 21. Убедись, что в папке <code>mods</code> нет посторонних jar с названием клиента. Если экран чёрный — посмотри <code>logs/latest.log</code>: там будет строка об ошибке шейдеров или миксинов.</p>
+    </details>
+
+    <details>
+      <summary>Не открывается меню по RShift</summary>
+      <p>В <code>logs/latest.log</code> должна быть строка вида <code>Init: 38 modules loaded</code>. Если её нет — мод не загрузился: проверь версию Fabric Loader и наличие Fabric API.</p>
+    </details>
+
+    <details>
+      <summary>Как работают метки клиента</summary>
+      <p>Список ников локальный: себя мод добавляет сам, друзей — в настройках модуля <b>ClientTags</b>. Автоматически узнать, у кого стоит мод, по ванильному протоколу нельзя — сервер такую информацию не передаёт.</p>
+    </details>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <h2>Скачать</h2>
+    <p class="sub">Версия 1.0 для Minecraft 1.21.4 (Fabric).</p>
+    <a class="btn" href="download/timesvizuals-1.0-1.21.4.jar" download>timesvizuals-1.0-1.21.4.jar</a>
+    <p class="note">SHA-256 и исходники — в репозитории. Сборка: <code>gradlew build</code>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>TimesVizuals — клиентский мод для Minecraft 1.21.4 (Fabric).</span>
+    <span>Не связан с Mojang или Microsoft.</span>
+  </div>
+</footer>
+
+</body>
+</html>
