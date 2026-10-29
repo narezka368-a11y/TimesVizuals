@@ -12,6 +12,15 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<script>
+document.querySelectorAll('.card').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    c.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
+</script>
 
 <div class="blobs" aria-hidden="true">
   <span class="blob b1"></span>
@@ -42,7 +51,7 @@
     <div class="hero-text">
       <span class="eyebrow">Fabric · 1.21.4 · Java 21</span>
       <h1>Times<span>Vizuals</span></h1>
-      <p class="lead">Клиентский мод с собственным интерфейсом: ClickGui в тёмном стекле, косметика с 3D-превью, HUD-эдитор, менеджер аккаунтов, овальный ватермарк с трекером ивентов и 39 модулей. Один jar — 1,9 МБ.</p>
+      <p class="lead">Клиентский мод с собственным интерфейсом: ClickGui в тёмном стекле с плавными Pulse-анимациями, косметика с 3D-превью, HUD-эдитор, менеджер аккаунтов, овальный ватермарк с трекером ивентов и 39 модулей. Один jar — 1,9 МБ.</p>
       <div class="actions">
         <a class="btn primary" href="download/timesvizuals-1.0-1.21.4.jar" download>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
@@ -94,7 +103,7 @@
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v5"/></svg>
         <h3>ClickGui</h3>
-        <p>Тёмное стекло, акцентный градиент, поиск, раскрывающиеся настройки, тултипы и бинды прямо на карточке модуля.</p>
+        <p>Тёмное стекло, плавные Pulse-анимации открытия, поиск, раскрывающиеся настройки, тултипы и бинды прямо на карточке модуля.</p>
       </article>
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h10M4 17h13"/><circle cx="19" cy="12" r="2"/></svg>
@@ -124,7 +133,7 @@
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><path d="M12 8l3 3-3 3-3-3 3-3z"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
         <h3>Трекер ивентов</h3>
-        <p>Овальный ватермарк с брендом, ником, FPS, пингом и сервером. Авто-детект «фантайма» в чате: стрелка по краю экрана и дистанция до моба ивента в метрах.</p>
+        <p>Компактный ватермарк в стиле Pulse с брендом, FPS, пингом и сервером. Авто-детект «фантайма» в чате: стрелка по краю экрана и дистанция до моба ивента в метрах.</p>
       </article>
     </div>
   </div>
