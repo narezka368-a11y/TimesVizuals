@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TimesVizuals — визуальный клиент для Minecraft 1.21.4</title>
-<meta name="description" content="TimesVizuals — клиентский мод для Minecraft 1.21.4 на Fabric: свой ClickGui, косметика, HUD-эдитор, менеджер аккаунтов, трекер ивентов и 39 модулей в одном jar.">
+<meta name="description" content="TimesVizuals — клиентский мод для Minecraft 1.21.4 на Fabric: свой ClickGui, косметика, HUD-эдитор, Alt Manager, трекер ивентов, превью шалкеров и аватары Figura в одном jar.">
 <meta property="og:title" content="TimesVizuals — клиент для Minecraft 1.21.4">
-<meta property="og:description" content="ClickGui, косметика, HUD-эдитор, Alt Manager, трекер ивентов и 39 модулей. Fabric 1.21.4.">
+<meta property="og:description" content="ClickGui, косметика, HUD-эдитор, Alt Manager, трекер ивентов, ShulkerViewer, аватары Figura. Fabric 1.21.4.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
@@ -51,7 +51,7 @@ document.querySelectorAll('.card').forEach(c=>{
     <div class="hero-text">
       <span class="eyebrow">Fabric · 1.21.4 · Java 21</span>
       <h1>Times<span>Vizuals</span></h1>
-      <p class="lead">Клиентский мод с собственным интерфейсом: ClickGui в тёмном стекле с плавными Pulse-анимациями, косметика с 3D-превью, HUD-эдитор, менеджер аккаунтов, овальный ватермарк с трекером ивентов и встроенной оптимизацией. Один jar — 2,6 МБ.</p>
+      <p class="lead">Клиентский мод с собственным интерфейсом: ClickGui в тёмном стекле с плавными анимациями, косметика с 3D-превью, HUD-эдитор, менеджер аккаунтов, превью шалкеров, трекер ивентов и аватары Figura в одном jar — 20 МБ.</p>
       <div class="actions">
         <a class="btn primary" href="download/timesvizuals-1.0-1.21.4.jar" download>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
@@ -63,6 +63,7 @@ document.querySelectorAll('.card').forEach(c=>{
         <li><b>RShift</b> меню</li>
         <li><b>RCtrl</b> HUD-эдитор</li>
         <li><b>K</b> косметика</li>
+        <li><b>Esc</b> превью шалкера</li>
       </ul>
     </div>
 
@@ -80,14 +81,14 @@ document.querySelectorAll('.card').forEach(c=>{
         <span>Client</span>
       </div>
       <div class="hc-cards">
+        <div class="hc-card on"><i></i>BeautyWorld<span class="key">—</span></div>
         <div class="hc-card on"><i></i>TargetHud<span class="key">H</span></div>
-        <div class="hc-card on"><i></i>ArrayList<span class="key">—</span></div>
         <div class="hc-card"><i></i>Zoom<span class="key">C</span></div>
         <div class="hc-card"><i></i>ChinaHat<span class="key">—</span></div>
         <div class="hc-card on"><i></i>Crosshair<span class="key">—</span></div>
-        <div class="hc-card"><i></i>Trails<span class="key">—</span></div>
+        <div class="hc-card"><i></i>Ghosts<span class="key">—</span></div>
       </div>
-      <div class="hc-foot">39 модулей · 6 категорий</div>
+      <div class="hc-foot">44 модуля · 6 категорий</div>
     </div>
   </div>
 </section>
@@ -103,7 +104,7 @@ document.querySelectorAll('.card').forEach(c=>{
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v5"/></svg>
         <h3>ClickGui</h3>
-        <p>Тёмное стекло, плавные Pulse-анимации открытия, поиск, раскрывающиеся настройки, тултипы и бинды прямо на карточке модуля.</p>
+        <p>Тёмное стекло с плавными анимациями, горизонтальные вкладки, поиск, раскрывающиеся настройки и бинды прямо на карточке.</p>
       </article>
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h10M4 17h13"/><circle cx="19" cy="12" r="2"/></svg>
@@ -113,32 +114,42 @@ document.querySelectorAll('.card').forEach(c=>{
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/></svg>
         <h3>Косметика</h3>
-        <p>66 предметов: плащи, крылья, шляпы, наплечное и питомцы. 3D-превью, категории, редкости, смена акцента интерфейса.</p>
+        <p>94 предмета: плащи, крылья, шляпы, наплечное и питомцы. 3D-превью, категории, редкости, смена акцента интерфейса.</p>
       </article>
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
-        <h3>Менеджер аккаунтов</h3>
-        <p>Список ников, создание, удаление, Random и переключение сессии одним кликом. Хранится локально в конфиге.</p>
+        <h3>ShulkerViewer</h3>
+        <p>Наведи на шалкера в инвентаре — превью содержимого: сетка 9×3, счётчик N/27 и подсветка по редкости предметов. Подмена тултипа.</p>
+      </article>
+      <article class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        <h3>Аватары Figura</h3>
+        <p>72 готовых аватара (Shizuko, Izuna, Mari, Senko и другие) вшиты в jar. Модуль FiguraAvatars копирует их в .minecraft/figura/avatars по одной кнопке.</p>
       </article>
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 20V9m6 11V4m6 16v-7m6 7V7"/></svg>
         <h3>Оптимизации</h3>
-        <p>Отдельный модуль Optimizer: срезает частицы (0–100%), глушит дождь и грозу, отключает bloom в HUD. Плюс кэш ширин текста и проекция мира без аллокаций — реальный рост FPS.</p>
+        <p>Модуль Optimizer срезает частицы (0–100%), глушит дождь/грозу и отключает bloom. Плюс кэш ширин и проекция без аллокаций — рост FPS.</p>
       </article>
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 18l6-6 4 4 6-8"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="8" r="1.6"/></svg>
-        <h3>Метки клиента</h3>
-        <p>Бейдж ⟦TV⟧ в табе и чате для тех, кто тоже с клиентом. Список локальный, есть авто-детект по маркеру.</p>
+        <h3>FakePlayer</h3>
+        <p>Спавнит локального фейкового игрока (копию твоего инвентаря и позы) для тестов, убирается при выключении. HP мигает при уроне.</p>
       </article>
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><path d="M12 8l3 3-3 3-3-3 3-3z"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
         <h3>Трекер ивентов</h3>
-        <p>Компактный ватермарк в стиле Pulse с брендом, FPS, пингом и сервером. Авто-детект «фантайма» в чате: стрелка по краю экрана и дистанция до моба ивента в метрах.</p>
+        <p>Ватермарк в стиле Pulse с FPS и пингом. Авто-детект «фантайма»: стрелка по краю экрана и дистанция до моба ивента в метрах.</p>
       </article>
       <article class="card">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 15a4 4 0 100-8 5.5 5.5 0 00-10.5 2A3.5 3.5 0 006 16h11z"/><path d="M4 20h16"/></svg>
         <h3>Красивое небо</h3>
-        <p>Свой цвет неба, облаков и тумана — в стиле Custom World. Один модуль SkyChanger перекрашивает весь мир под выбранную палитру клиента.</p>
+        <p>SkyChanger перекрашивает небо, облака и туман. TargetEsp получил режимы Chains (цепи-пружины) и Ghosts (светящиеся орбиты с хвостами).</p>
+      </article>
+      <article class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+        <h3>TargetHud</h3>
+        <p>Плашка цели под прицелом: скин, имя, HP-полоса, броня и руки. Плавная анимация здоровья и появления.</p>
       </article>
     </div>
   </div>
@@ -148,16 +159,17 @@ document.querySelectorAll('.card').forEach(c=>{
   <div class="wrap">
     <div class="section-head">
       <h2>Модули</h2>
-      <p>38 модулей в шести категориях. Клик по карточке — включение, правый клик — настройки.</p>
+      <p>44 модуля в шести категориях. Клик по карточке — включение, правый клик — настройки.</p>
     </div>
 
     <div class="modules">
       <div class="cat">
-        <h3>Render <span>13</span></h3>
+        <h3>Render <span>14</span></h3>
         <ul>
           <li>Fullbright</li><li>Zoom</li><li>TargetEsp</li><li>ChinaHat</li>
           <li>Trails</li><li>JumpCircles</li><li>Crosshair</li><li>NoRender</li>
-          <li>Trajectories</li><li>ViewModel</li><li>HitMarker</li><li>AspectRatio</li><li>SkyChanger</li>
+          <li>Trajectories</li><li>ViewModel</li><li>HitMarker</li><li>AspectRatio</li>
+          <li>SkyChanger</li><li>BeautyWorld</li>
         </ul>
       </div>
       <div class="cat">
@@ -169,16 +181,16 @@ document.querySelectorAll('.card').forEach(c=>{
         </ul>
       </div>
       <div class="cat">
-        <h3>Player <span>5</span></h3>
-        <ul><li>AutoAccept</li><li>AutoReply</li><li>DeathCoords</li><li>Waypoints</li><li>AutoRespawn</li></ul>
+        <h3>Player <span>7</span></h3>
+        <ul><li>AutoAccept</li><li>AutoReply</li><li>DeathCoords</li><li>Waypoints</li><li>ClanCoords</li><li>AutoRespawn</li><li>FakePlayer</li></ul>
+      </div>
+      <div class="cat">
+        <h3>Client <span>6</span></h3>
+        <ul><li>Interface</li><li>Optimizer</li><li>Cosmetics</li><li>Streamer</li><li>FiguraAvatars</li><li>DiscordRpc</li></ul>
       </div>
       <div class="cat">
         <h3>Combat <span>2</span></h3>
         <ul><li>AutoSwap</li><li>ShiftTap</li></ul>
-      </div>
-      <div class="cat">
-        <h3>Client <span>5</span></h3>
-        <ul><li>Interface</li><li>MainMenu</li><li>ClientTags</li><li>Cosmetics</li><li>DiscordRpc</li></ul>
       </div>
       <div class="cat">
         <h3>Movement <span>1</span></h3>
@@ -197,7 +209,7 @@ document.querySelectorAll('.card').forEach(c=>{
 
     <ol class="steps">
       <li><span class="num">1</span><div><b>Fabric Loader</b> для Minecraft 1.21.4 и Java 21.</div></li>
-      <li><span class="num">2</span><div>Скачай <a href="download/timesvizuals-1.0-1.21.4.jar">timesvizuals-1.0-1.21.4.jar</a>.</div></li>
+      <li><span class="num">2</span><div>Скачай <a href="download/timesvizuals-1.0-1.21.4.jar">timesvizuals-1.0-1.21.4.jar</a> (20 МБ).</div></li>
       <li><span class="num">3</span><div>Положи jar в папку <code>mods</code> профиля.</div></li>
       <li><span class="num">4</span><div>Добавь туда же <b>Fabric API</b> под 1.21.4.</div></li>
       <li><span class="num">5</span><div>Запусти игру: <b>RShift</b> — меню, <b>RCtrl</b> — HUD, <b>K</b> — косметика.</div></li>
@@ -215,7 +227,11 @@ document.querySelectorAll('.card').forEach(c=>{
     </details>
     <details>
       <summary>Не открывается меню по RShift</summary>
-      <p>В логе должна быть строка <code>Init: 39 modules loaded</code>. Если её нет — мод не загрузился.</p>
+      <p>В логе должна быть строка <code>Init: 44 modules loaded</code>. Если её нет — мод не загрузился.</p>
+    </details>
+    <details>
+      <summary>Как включить аватары Figura</summary>
+      <p>Нужен внешний мод Figura для 1.21.4. Затем в меню (RShift → Client) запусти модуль FiguraAvatars → кнопка «Install Figura avatars» — авары скопируются в <code>.minecraft/figura/avatars</code>.</p>
     </details>
     <details>
       <summary>Как поставить бинд на модуль</summary>
@@ -223,7 +239,7 @@ document.querySelectorAll('.card').forEach(c=>{
     </details>
     <details>
       <summary>Откуда берётся косметика</summary>
-      <p>66 моделей лежат внутри jar. Чужие плащи и шляпы видны только тем, у кого установлен клиент.</p>
+      <p>94 модели лежат внутри jar. Чужие плащи и шляпы видны только тем, у кого установлен клиент.</p>
     </details>
   </div>
 </section>
@@ -233,7 +249,7 @@ document.querySelectorAll('.card').forEach(c=>{
     <div class="download-card">
       <div>
         <h2>Скачать</h2>
-        <p class="sub">Версия 1.0 · Minecraft 1.21.4 · Fabric · 2,6 МБ</p>
+        <p class="sub">Версия 1.0 · Minecraft 1.21.4 · Fabric · 20 МБ</p>
       </div>
       <a class="btn primary" href="download/timesvizuals-1.0-1.21.4.jar" download>timesvizuals-1.0-1.21.4.jar</a>
     </div>
