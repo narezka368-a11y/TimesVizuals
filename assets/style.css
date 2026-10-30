@@ -176,6 +176,13 @@ details p{color:var(--dim);font-size:13.5px;margin:10px 0 0}
 footer{padding:32px 0 44px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
+.mods-list{display:grid;gap:10px}
+.mod-item{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--border);border-radius:12px;padding:13px 16px;background:var(--panel);transition:border-color .15s,transform .15s}
+.mod-item:hover{border-color:rgba(124,92,255,.4);transform:translateY(-1px)}
+.mod-item b{font-size:14px;color:var(--text);display:block}
+.mod-item div span{font-size:12.5px;color:var(--dim);display:block;margin-top:2px}
+.btn.sm{padding:8px 14px;font-size:12.5px;border-radius:9px;flex:0 0 auto}
+
 @media(max-width:860px){
   .hero-inner{grid-template-columns:1fr;gap:30px}
   h1{font-size:42px}
