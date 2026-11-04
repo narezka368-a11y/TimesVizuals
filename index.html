@@ -4,44 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TimesVizuals — визуальный клиент для Minecraft 1.21.4</title>
-<meta name="description" content="TimesVizuals — клиентский мод для Minecraft 1.21.4 на Fabric: свой ClickGui, косметика, HUD-эдитор, Alt Manager, трекер ивентов, превью шалкеров и аватары Figura в одном jar.">
+<meta name="description" content="TimesVizuals — клиентский мод для Minecraft 1.21.4 на Fabric: новый ClickGui, TargetESP с 8 эффектами, HUD-стили, косметика с 3D-превью, аватары Figura и иконка VoiceChat в одном jar.">
 <meta property="og:title" content="TimesVizuals — клиент для Minecraft 1.21.4">
-<meta property="og:description" content="ClickGui, косметика, HUD-эдитор, Alt Manager, трекер ивентов, ShulkerViewer, аватары Figura. Fabric 1.21.4.">
+<meta property="og:description" content="ClickGui в стиле SystemDLC, TargetESP с 8 эффектами, HUD-стили, косметика, Figura, VoiceChat. Fabric 1.21.4.">
+<meta property="og:image" content="assets/hero-backdrop.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/hero-backdrop.jpg">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<script>
-document.querySelectorAll('.card').forEach(c=>{
-  c.addEventListener('mousemove',e=>{
-    const r=c.getBoundingClientRect();
-    c.style.setProperty('--mx',(e.clientX-r.left)+'px');
-    c.style.setProperty('--my',(e.clientY-r.top)+'px');
-  });
-});
-</script>
 
-<div class="blobs" aria-hidden="true">
-  <span class="blob b1"></span>
-  <span class="blob b2"></span>
-  <span class="blob b3"></span>
+<div class="scroll-progress" id="progress" aria-hidden="true"></div>
+
+<div class="backdrop" aria-hidden="true">
+  <div class="backdrop-image"></div>
+  <div class="backdrop-mesh"></div>
+  <div class="backdrop-grid"></div>
+  <span class="orb orb-a"></span>
+  <span class="orb orb-b"></span>
+  <span class="orb orb-c"></span>
 </div>
 
-<header>
-  <div class="wrap">
+<header id="header">
+  <div class="wrap header-inner">
     <a class="brand" href="#top">
-      <img src="assets/logo.svg" alt="">
+      <img src="assets/logo.svg" alt="" width="26" height="26">
       <span>Times<b>Vizuals</b></span>
+      <em class="brand-version">v1.0</em>
     </a>
-    <nav>
+
+    <nav class="nav">
+      <a href="#new">Новое</a>
       <a href="#features">Возможности</a>
       <a href="#modules">Модули</a>
-      <a href="#install">Установка</a>
-      <a href="#mods">Все моды</a>
+      <a href="#install">Установка</a> 
       <a href="#faq">FAQ</a>
-      <a class="nav-cta" href="#download">Скачать</a>
     </nav>
+
+    <a class="btn primary sm nav-cta" href="#download">Скачать</a>
   </div>
 </header>
 
@@ -49,151 +50,336 @@ document.querySelectorAll('.card').forEach(c=>{
 
 <section class="hero">
   <div class="wrap hero-inner">
-    <div class="hero-text">
-      <span class="eyebrow">Fabric · 1.21.4 · Java 21</span>
+    <div class="hero-text reveal">
+      <div class="chips">
+        <span class="chip">Fabric</span>
+        <span class="chip">Minecraft 1.21.4</span>
+        <span class="chip">Java 21</span>
+        <span class="chip accent">новый GUI</span>
+      </div>
+
       <h1>Times<span>Vizuals</span></h1>
-      <p class="lead">Клиентский мод с собственным интерфейсом: ClickGui в тёмном стекле с плавными анимациями, косметика с 3D-превью, HUD-эдитор, менеджер аккаунтов, превью шалкеров, трекер ивентов и аватары Figura в одном jar — 20 МБ.</p>
+
+      <p class="lead">
+        Клиентский мод с полностью своим интерфейсом: ClickGui в стиле SystemDLC,
+        TargetESP с восемью эффектами, HUD-стили на выбор, косметика с 3D-превью,
+        аватары Figura и иконка VoiceChat — один jar на 20 МБ.
+      </p>
+
       <div class="actions">
         <a class="btn primary" href="download/timesvizuals-1.0-1.21.4.jar" download>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
           Скачать мод
         </a>
         <a class="btn ghost" href="#install">Как установить</a>
+        <a class="btn ghost" href="#new">Что нового</a>
       </div>
+
       <ul class="quick">
         <li><b>RShift</b> меню</li>
         <li><b>RCtrl</b> HUD-эдитор</li>
         <li><b>K</b> косметика</li>
         <li><b>Esc</b> превью шалкера</li>
       </ul>
+
+      <div class="stats">
+        <div class="stat"><b data-count="45">45</b><span>модулей</span></div>
+        <div class="stat"><b data-count="8">8</b><span>эффектов TargetESP</span></div>
+        <div class="stat"><b data-count="94">94</b><span>косметики</span></div>
+        <div class="stat"><b data-count="72">72</b><span>аватара Figura</span></div>
+      </div>
     </div>
 
-    <div class="hero-card">
-      <div class="hc-head">
-        <span class="dot"></span>
-        <span class="hc-title">Times<em>Vizuals</em></span>
-        <span class="hc-chip">v1.0</span>
+    <div class="hero-visual reveal">
+      <div class="gui" aria-hidden="true">
+        <div class="gui-side">
+          <span class="gui-logo">T</span>
+          <span class="gui-row active">Render</span>
+          <span class="gui-row">Hud</span>
+          <span class="gui-row">Combat</span>
+          <span class="gui-row">Player</span>
+          <span class="gui-row">Client</span>
+          <span class="gui-row soft">Cosmetics</span>
+        </div>
+
+        <div class="gui-main">
+          <div class="gui-top">
+            <span class="gui-burger"><i></i><i></i><i></i></span>
+            <span class="gui-title">Render</span>
+            <span class="gui-search">Search</span>
+          </div>
+
+          <div class="gui-cards">
+            <div class="gui-card on">
+              <span class="gc-icon">T</span>
+              <span class="gc-name">TargetEsp</span>
+              <span class="gc-key">R</span>
+              <span class="gc-toggle"></span>
+            </div>
+            <div class="gui-card on">
+              <span class="gc-icon">B</span>
+              <span class="gc-name">BeautyWorld</span>
+              <span class="gc-key">B</span>
+              <span class="gc-toggle"></span>
+            </div>
+            <div class="gui-card">
+              <span class="gc-icon">Z</span>
+              <span class="gc-name">Zoom</span>
+              <span class="gc-key">C</span>
+              <span class="gc-toggle"></span>
+            </div>
+            <div class="gui-card on">
+              <span class="gc-icon">C</span>
+              <span class="gc-name">Crosshair</span>
+              <span class="gc-key">N</span>
+              <span class="gc-toggle"></span>
+            </div>
+            <div class="gui-card">
+              <span class="gc-icon">S</span>
+              <span class="gc-name">SkyChanger</span>
+              <span class="gc-key">Y</span>
+              <span class="gc-toggle"></span>
+            </div>
+            <div class="gui-card">
+              <span class="gc-icon">I</span>
+              <span class="gc-name">InventoryAnim</span>
+              <span class="gc-key">J</span>
+              <span class="gc-toggle"></span>
+            </div>
+          </div>
+
+          <div class="gui-drawer">
+            <div class="gd-row"><span>Эффект</span><em>Молнии</em></div>
+            <div class="gd-row"><span>Радиус</span><em>0.70</em></div>
+            <div class="gd-row"><span>Плотность</span><em>220</em></div>
+          </div>
+        </div>
       </div>
-      <div class="hc-rail">
-        <span class="active">Render</span>
-        <span>HUD</span>
-        <span>Player</span>
-        <span>Combat</span>
-        <span>Client</span>
-      </div>
-      <div class="hc-cards">
-        <div class="hc-card on"><i></i>BeautyWorld<span class="key">—</span></div>
-        <div class="hc-card on"><i></i>TargetHud<span class="key">H</span></div>
-        <div class="hc-card"><i></i>Zoom<span class="key">C</span></div>
-        <div class="hc-card"><i></i>ChinaHat<span class="key">—</span></div>
-        <div class="hc-card on"><i></i>Crosshair<span class="key">—</span></div>
-        <div class="hc-card"><i></i>Ghosts<span class="key">—</span></div>
-      </div>
-      <div class="hc-foot">44 модуля · 6 категорий</div>
+
+      <div class="float-badge fb-a"><span class="fb-dot"></span>TargetESP · Молнии</div>
+      <div class="float-badge fb-b"><span class="fb-dot cyan"></span>HUD · стиль System</div>
+      <div class="float-badge fb-c"><span class="fb-dot green"></span>VoiceChat · кто говорит</div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>TargetESP · 8 эффектов</span><i></i>
+    <span>новый ClickGui</span><i></i>
+    <span>HUD-стили System</span><i></i>
+    <span>VoiceChat</span><i></i>
+    <span>TargetHud</span><i></i>
+    <span>ShulkerViewer</span><i></i>
+    <span>Alt Manager</span><i></i>
+    <span>Figura</span><i></i>
+    <span>TargetESP · 8 эффектов</span><i></i>
+    <span>новый ClickGui</span><i></i>
+    <span>HUD-стили System</span><i></i>
+    <span>VoiceChat</span><i></i>
+  </div>
+</div>
+
+<section id="new">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Обновление</span>
+      <h2>Что нового в сборке</h2>
+      <p>Дизайн интерфейса взят из SystemDLC, но весь код переписан под наш рендер — никакой обфускации.</p>
+    </div>
+
+    <div class="grid grid-4">
+      <article class="card feature big reveal">
+        <div class="card-head">
+          <span class="badge">TargetESP</span>
+          <span class="badge ghost">8 режимов</span>
+        </div>
+        <h3>Метки цели как в референсах</h3>
+        <p>Кольцо, треугольник, молнии, спираль, орбиты, искры, руны и пульс. Собственный glow-шейдер, шлейф, плотность частиц и сила свечения — всё настраивается слайдерами.</p>
+        <div class="pill-row">
+          <span>Кольцо</span><span>Молнии</span><span>Спираль</span><span>Орбиты</span><span>Руны</span><span>Пульс</span>
+        </div>
+      </article>
+
+      <article class="card feature big reveal">
+        <div class="card-head">
+          <span class="badge">ClickGui</span>
+          <span class="badge ghost">рестайл</span>
+        </div>
+        <h3>Сайдбар, топбар и мозаика</h3>
+        <p>Панель 1188×700 с монохромной палитрой, сворачиваемый сайдбар 48↔224, поиск в шапке и карточки в три колонки: тумблер, чип бинда, раскрывающийся блок настроек.</p>
+        <div class="pill-row">
+          <span>сайдбар</span><span>поиск</span><span>3 колонки</span><span>тумблеры</span>
+        </div>
+      </article>
+
+      <article class="card feature reveal">
+        <div class="card-head">
+          <span class="badge">HUD</span>
+          <span class="badge ghost">выборочно</span>
+        </div>
+        <h3>Стиль System на выбор</h3>
+        <p>Watermark, Potions и TargetHud получили новый стиль: плита с шапкой, плитка иконки 20×20, кольцо таймера и чип HP. Остальные элементы остаются в прежнем виде — стиль не навязывается.</p>
+      </article>
+
+      <article class="card feature reveal">
+        <div class="card-head">
+          <span class="badge">VoiceChat</span>
+          <span class="badge ghost">новое</span>
+        </div>
+        <h3>Видно, кто говорит</h3>
+        <p>HUD-элемент читает состояние Simple Voice Chat и показывает говорящих: точка пульсирует по громкости, шёпот подсвечивается отдельным цветом. Без мода элемент просто скрыт.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <section id="features">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Возможности</h2>
-      <p>Всё своё — интерфейс, меню, аккаунты, рендер, косметика.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Возможности</span>
+      <h2>Всё своё — от шрифта до шейдеров</h2>
+      <p>Интерфейс, рендер, косметика и аккаунты написаны с нуля под Yarn 1.21.4.</p>
     </div>
 
     <div class="grid">
-      <article class="card">
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v5"/></svg>
-        <h3>ClickGui</h3>
-        <p>Тёмное стекло с плавными анимациями, горизонтальные вкладки, поиск, раскрывающиеся настройки и бинды прямо на карточке.</p>
+        <h3>Свой ClickGui</h3>
+        <p>Монохромная палитра, тонкие обводки, скругления 8/12/14, плавное открытие и живой поиск по модулям.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h10M4 17h13"/><circle cx="19" cy="12" r="2"/></svg>
         <h3>HUD-эдитор</h3>
-        <p>RCtrl — и элементы двигаются мышью с сеткой 2 px. Выключенные видны призрачными плашками, позиции сохраняются сами.</p>
+        <p>RCtrl — элементы двигаются мышью с сеткой 2 px. Выключенные видны призрачными плашками, позиции сохраняются сами.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/></svg>
         <h3>Косметика</h3>
-        <p>94 предмета: плащи, крылья, шляпы, наплечное и питомцы. 3D-превью, категории, редкости, смена акцента интерфейса.</p>
+        <p>94 предмета: плащи, крылья, шляпы, наплечное и питомцы. 3D-превью, категории, редкости и смена акцента интерфейса.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
         <h3>ShulkerViewer</h3>
-        <p>Наведи на шалкера в инвентаре — превью содержимого: сетка 9×3, счётчик N/27 и подсветка по редкости предметов. Подмена тултипа.</p>
+        <p>Наведи на шалкера — превью содержимого: сетка 9×3, счётчик N/27 и подсветка по редкости предметов.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
         <h3>Аватары Figura</h3>
-        <p>72 готовых аватара вшиты в jar. Модуль FiguraAvatars открывает отдельную галерею с превью человечков — клик по аватару копирует его в .minecraft/figura/avatars. Для отображения нужен внешний мод Figura.</p>
+        <p>72 аватара вшиты в jar. Галерея копирует выбранный аватар в <code>.minecraft/figura/avatars</code>; рендер — внешним модом Figura.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 20V9m6 11V4m6 16v-7m6 7V7"/></svg>
         <h3>Оптимизации</h3>
-        <p>Модуль Optimizer срезает частицы (0–100%), глушит дождь/грозу и отключает bloom. Плюс кэш ширин и проекция без аллокаций — рост FPS.</p>
+        <p>Optimizer срезает частицы, глушит дождь и грозу, отключает bloom. Плюс кэш ширин текста и проекция без аллокаций.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 18l6-6 4 4 6-8"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="8" r="1.6"/></svg>
         <h3>FakePlayer</h3>
-        <p>Спавнит локального фейкового игрока (копию твоего инвентаря и позы) для тестов, убирается при выключении. HP мигает при уроне.</p>
+        <p>Локальный фейковый игрок с копией твоего инвентаря и позы — для тестов, убирается при выключении.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><path d="M12 8l3 3-3 3-3-3 3-3z"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
         <h3>Трекер ивентов</h3>
-        <p>Ватермарк в стиле Pulse с FPS и пингом. Авто-детект «фантайма»: стрелка по краю экрана и дистанция до моба ивента в метрах.</p>
+        <p>Стрелка по краю экрана и дистанция до моба ивента в метрах, FPS и пинг в ватермарке.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 15a4 4 0 100-8 5.5 5.5 0 00-10.5 2A3.5 3.5 0 006 16h11z"/><path d="M4 20h16"/></svg>
         <h3>Красивое небо</h3>
-        <p>SkyChanger перекрашивает небо, облака и туман. TargetEsp получил режимы Chains (цепи-пружины) и Ghosts (светящиеся орбиты с хвостами).</p>
+        <p>SkyChanger перекрашивает небо, облака и туман; BeautyWorld добавляет мягкий свет и насыщенность.</p>
       </article>
-      <article class="card">
+
+      <article class="card spotlight reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4v16M4 12h16"/><circle cx="12" cy="12" r="9"/></svg>
+        <h3>Анимации инвентаря</h3>
+        <p>Восемь режимов открытия инвентаря: масштаб, отскок, сдвиги, флип, варп и глитч, с настройкой скорости.</p>
+      </article>
+
+      <article class="card spotlight reveal">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
         <h3>TargetHud</h3>
-        <p>Плашка цели под прицелом: скин, имя, HP-полоса, броня и руки. Плавная анимация здоровья и появления.</p>
+        <p>Три стиля плашки цели: скин, имя, HP, броня и руки. Стиль System — чип здоровья и кольца без полосы.</p>
+      </article>
+
+      <article class="card spotlight reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M5 6h14M5 18h9"/></svg>
+        <h3>Alt Manager</h3>
+        <p>Хранилище аккаунтов с быстрым переключением прямо из меню — без перезапуска игры.</p>
       </article>
     </div>
   </div>
 </section>
 
+<section id="showcase">
+  <div class="wrap showcase">
+    <div class="showcase-text reveal">
+      <span class="eyebrow">Внешний вид</span>
+      <h2>Тёмное стекло и аккуратная сетка</h2>
+      <p>Интерфейс собран по одному принципу: скруглённые платы, тонкая обводка в один пиксель, спокойная типографика и акцент только там, где он помогает — тумблер, ползунок, кольцо таймера.</p>
+      <ul class="ticks">
+        <li>Плиты radius 12, карточки radius 14, чипы radius 4</li>
+        <li>Отступы 8 / 16 / 32 — одна сетка на весь интерфейс</li>
+        <li>Анимации 0.15–0.22 с, easing cubic-out</li>
+        <li>Все цвета проходят через одну палитру — легко менять акцент</li>
+      </ul>
+      <a class="btn ghost" href="#download">Забрать сборку</a>
+    </div>
+
+    <figure class="showcase-art reveal">
+      <img src="assets/showcase-panel.jpg" alt="Абстрактная иллюстрация интерфейса TimesVizuals" loading="lazy">
+      <figcaption>Стеклянные панели, фиолетовый и бирюзовый акценты</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section id="modules">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="eyebrow">Каталог</span>
       <h2>Модули</h2>
-      <p>44 модуля в шести категориях. Клик по карточке — включение, правый клик — настройки.</p>
+      <p>Левый клик по карточке — включение, правый — настройки, клик по чипу клавиши — бинд.</p>
     </div>
 
     <div class="modules">
-      <div class="cat">
-        <h3>Render <span>14</span></h3>
+      <div class="cat reveal">
+        <h3>Render <span>15</span></h3>
         <ul>
           <li>Fullbright</li><li>Zoom</li><li>TargetEsp</li><li>ChinaHat</li>
           <li>Trails</li><li>JumpCircles</li><li>Crosshair</li><li>NoRender</li>
           <li>Trajectories</li><li>ViewModel</li><li>HitMarker</li><li>AspectRatio</li>
-          <li>SkyChanger</li><li>BeautyWorld</li>
+          <li>SkyChanger</li><li>BeautyWorld</li><li>InventoryAnimation</li>
         </ul>
       </div>
-      <div class="cat">
-        <h3>HUD <span>12</span></h3>
+      <div class="cat reveal">
+        <h3>HUD <span>13</span></h3>
         <ul>
           <li>Watermark</li><li>Info</li><li>ArrayList</li><li>Keybinds</li>
           <li>Potions</li><li>Coordinates</li><li>Armor</li><li>TargetHud</li>
           <li>TotemCounter</li><li>StaffList</li><li>Time</li><li>EventTarget</li>
+          <li>VoiceChat</li>
         </ul>
       </div>
-      <div class="cat">
-        <h3>Player <span>7</span></h3>
-        <ul><li>AutoAccept</li><li>AutoReply</li><li>DeathCoords</li><li>Waypoints</li><li>ClanCoords</li><li>AutoRespawn</li><li>FakePlayer</li></ul>
+      <div class="cat reveal">
+        <h3>Player <span>8</span></h3>
+        <ul><li>AutoAccept</li><li>AutoReply</li><li>DeathCoords</li><li>Waypoints</li><li>ClanCoords</li><li>AutoRespawn</li><li>FakePlayer</li><li>FastXp</li></ul>
       </div>
-      <div class="cat">
-        <h3>Client <span>6</span></h3>
-        <ul><li>Interface</li><li>Optimizer</li><li>Cosmetics</li><li>Streamer</li><li>FiguraAvatars</li><li>DiscordRpc</li></ul>
+      <div class="cat reveal">
+        <h3>Client <span>8</span></h3>
+        <ul><li>Interface</li><li>Optimizer</li><li>Cosmetics</li><li>Streamer</li><li>FiguraAvatars</li><li>DiscordRpc</li><li>ThemeScroller</li><li>ThemePhysics</li></ul>
       </div>
-      <div class="cat">
+      <div class="cat reveal">
         <h3>Combat <span>2</span></h3>
         <ul><li>AutoSwap</li><li>ShiftTap</li></ul>
       </div>
-      <div class="cat">
+      <div class="cat reveal">
         <h3>Movement <span>1</span></h3>
         <ul><li>Sprint</li></ul>
       </div>
@@ -203,95 +389,81 @@ document.querySelectorAll('.card').forEach(c=>{
 
 <section id="install">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="eyebrow">Старт</span>
       <h2>Установка</h2>
       <p>Пять минут, если Fabric уже стоит.</p>
     </div>
 
     <ol class="steps">
-      <li><span class="num">1</span><div><b>Fabric Loader</b> для Minecraft 1.21.4 и Java 21.</div></li>
-      <li><span class="num">2</span><div>Скачай <a href="download/timesvizuals-1.0-1.21.4.jar">timesvizuals-1.0-1.21.4.jar</a> (20 МБ).</div></li>
-      <li><span class="num">3</span><div>Положи jar в папку <code>mods</code> профиля.</div></li>
-      <li><span class="num">4</span><div>Добавь туда же <b>Fabric API</b> под 1.21.4.</div></li>
-      <li><span class="num">5</span><div>Запусти игру: <b>RShift</b> — меню, <b>RCtrl</b> — HUD, <b>K</b> — косметика.</div></li>
+      <li class="reveal"><span class="num">1</span><div><b>Fabric Loader</b> для Minecraft 1.21.4 и Java 21.</div></li>
+      <li class="reveal"><span class="num">2</span><div>Скачай <a href="download/timesvizuals-1.0-1.21.4.jar">timesvizuals-1.0-1.21.4.jar</a> — 20 МБ.</div></li>
+      <li class="reveal"><span class="num">3</span><div>Положи jar в папку <code>mods</code> профиля.</div></li>
+      <li class="reveal"><span class="num">4</span><div>Добавь туда же <b>Fabric API</b> под 1.21.4 — остальные моды по желанию.</div></li>
+      <li class="reveal"><span class="num">5</span><div>Запусти игру: <b>RShift</b> — меню, <b>RCtrl</b> — HUD, <b>K</b> — косметика.</div></li>
     </ol>
+
+    <div class="download-card reveal">
+      <div class="download-info">
+        <h2>Только клиент</h2>
+        <p class="sub">Версия 1.0 · Minecraft 1.21.4 · Fabric · 20 МБ</p>
+        <div class="sha">
+          <span class="sha-label">SHA-256</span>
+          <code id="sha-value">68756DDAEA69BA2A1924ECF4F07A1161BD7DE95D00C0D1BC1F613B77507F9C63</code>
+          <button class="copy" data-copy="68756DDAEA69BA2A1924ECF4F07A1161BD7DE95D00C0D1BC1F613B77507F9C63" type="button">Копировать</button>
+        </div>
+      </div>
+      <a class="btn primary" href="download/timesvizuals-1.0-1.21.4.jar" download>timesvizuals-1.0-1.21.4.jar</a>
+    </div>
   </div>
 </section>
+
 
 <section id="faq">
   <div class="wrap">
-    <div class="section-head"><h2>FAQ</h2></div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Вопросы</span>
+      <h2>FAQ</h2>
+    </div>
 
-    <details>
+    <details class="reveal">
       <summary>Чёрный экран или игра не запускается</summary>
-      <p>Проверь версию Minecraft (ровно 1.21.4), Java 21 и наличие Fabric API. В <code>logs/latest.log</code> будет видно, если упал шейдер или миксин.</p>
+      <p>Проверь версию Minecraft (ровно 1.21.4), Java 21 и наличие Fabric API. В <code>logs/latest.log</code> видно, если упал шейдер или миксин.</p>
     </details>
-    <details>
+    <details class="reveal">
       <summary>Не открывается меню по RShift</summary>
-      <p>В логе должна быть строка <code>Init: 44 modules loaded</code>. Если её нет — мод не загрузился.</p>
+      <p>В логе должна быть строка <code>Init: 45 modules loaded</code>. Если её нет — мод не загрузился: проверь версию Fabric Loader.</p>
     </details>
-    <details>
+    <details class="reveal">
+      <summary>Мод не работает на 26.2</summary>
+      <p>Сборка собрана под 1.21.4 (Yarn 1.21.4, Fabric API 0.115.1). На других версиях jar не загрузится — нужен отдельный порт.</p>
+    </details>
+    <details class="reveal">
       <summary>Как включить аватары Figura</summary>
-      <p>Нужен внешний мод Figura для 1.21.4. Открой ClickGui (RShift → Client) → модуль FiguraAvatars → кнопка открывает галерею из 72 аватаров с превью; клик по аватару копирует его в <code>.minecraft/figura/avatars</code>, и он появится в Figura.</p>
+      <p>Нужен внешний мод Figura для 1.21.4. В ClickGui → Client → FiguraAvatars открой галерею и кликни по аватару: он скопируется в <code>.minecraft/figura/avatars</code>.</p>
     </details>
-    <details>
+    <details class="reveal">
       <summary>Как поставить бинд на модуль</summary>
-      <p>Открой меню, найди на карточке чип с клавишей (или «NONE») и кликни по нему — дальше нажми нужную клавишу. Esc отменяет.</p>
+      <p>Клик по чипу с клавишей на карточке модуля, дальше нажми нужную клавишу. Esc отменяет запись.</p>
     </details>
-    <details>
-      <summary>Откуда берётся косметика</summary>
-      <p>94 модели лежат внутри jar. Чужие плащи и шляпы видны только тем, у кого установлен клиент.</p>
+    <details class="reveal">
+      <summary>Почему VoiceChat-элемент пустой</summary>
+      <p>Он показывает только тех, кто реально говорит прямо сейчас. Без мода voicechat или вне голосового сервера элемент скрывается сам.</p>
     </details>
-  </div>
-</section>
-
-<section id="mods">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Все моды для установки</h2>
-      <p>Скачай полный набор и положи все jar в папку <code>mods</code> профиля (Fabric 1.21.4).</p>
-    </div>
-    <div class="mods-list">
-      <div class="mod-item">
-        <div><b>TimesVizuals</b><span>Сам клиент — все фичи, GUI, косметика, аватары.</span></div>
-        <a class="btn primary sm" href="downloads/timesvizuals-1.0-1.21.4.jar" download>20 МБ</a>
-      </div>
-      <div class="mod-item">
-        <div><b>Fabric API</b><span>Обязательная библиотека для всех модов Fabric.</span></div>
-        <a class="btn ghost sm" href="downloads/fabric-api-0.119.4+1.21.4.jar" download>2 МБ</a>
-      </div>
-      <div class="mod-item">
-        <div><b>Figura</b><span>Рендерит аватары персонажей — нужен, чтобы одевать их.</span></div>
-        <a class="btn ghost sm" href="downloads/figura-1.21.4-fabric.jar" download>2.5 МБ</a>
-      </div>
-      <div class="mod-item">
-        <div><b>VoiceChat</b><span>Голосовой чат (если используется на сервере).</span></div>
-        <a class="btn ghost sm" href="downloads/voicechat-fabric-1.21.4-2.6.27.jar" download>5 МБ</a>
-      </div>
-      <div class="mod-item">
-        <div><b>Cloth Config</b><span>Библиотека настроек (нужна некоторым модам).</span></div>
-        <a class="btn ghost sm" href="downloads/cloth-config-17.0.144-fabric.jar" download>1.1 МБ</a>
-      </div>
-      <div class="mod-item">
-        <div><b>Placeholder API</b><span>Библиотека плейсхолдеров.</span></div>
-        <a class="btn ghost sm" href="downloads/placeholder-api-2.5.2+1.21.3.jar" download>0.2 МБ</a>
-      </div>
-      <div class="mod-item">
-        <div><b>Fast IP Ping</b><span>Быстрый пинг серверов.</span></div>
-        <a class="btn ghost sm" href="downloads/fast-ip-ping-v1.0.12-mc1.21.4-fabric.jar" download>10 КБ</a>
-      </div>
-    </div>
   </div>
 </section>
 
 <section id="download">
   <div class="wrap">
-    <div class="download-card">
+    <div class="cta reveal">
       <div>
-        <h2>Только клиент</h2>
-        <p class="sub">Версия 1.0 · Minecraft 1.21.4 · Fabric · 20 МБ</p>
+        <h2>Готово к установке</h2>
+        <p>Один jar, 20 МБ, без лишних зависимостей — только Fabric API.</p>
       </div>
-      <a class="btn primary" href="download/timesvizuals-1.0-1.21.4.jar" download>timesvizuals-1.0-1.21.4.jar</a>
+      <div class="cta-actions">
+        <a class="btn primary" href="download/timesvizuals-1.0-1.21.4.jar" download>Скачать TimesVizuals</a>
+        <a class="btn ghost" href="#modules">Посмотреть модули</a>
+      </div>
     </div>
   </div>
 </section>
@@ -299,11 +471,81 @@ document.querySelectorAll('.card').forEach(c=>{
 </main>
 
 <footer>
-  <div class="wrap">
-    <span>TimesVizuals — клиентский мод для Minecraft 1.21.4 (Fabric).</span>
-    <span>Не связан с Mojang или Microsoft.</span>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo.svg" alt="" width="22" height="22">
+      <span>TimesVizuals — клиентский мод для Minecraft 1.21.4 (Fabric).</span>
+    </div>
+    <div class="footer-meta">Не связан с Mojang или Microsoft.</div>
   </div>
 </footer>
+
+<script>
+const progress = document.getElementById('progress');
+const header = document.getElementById('header');
+
+const onScroll = () => {
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = height > 0 ? window.scrollY / height : 0;
+  if (progress) progress.style.transform = `scaleX(${ratio})`;
+  if (header) header.classList.toggle('pinned', window.scrollY > 12);
+};
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
+
+document.querySelectorAll('.spotlight').forEach((card) => {
+  card.addEventListener('mousemove', (event) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+  });
+});
+
+document.querySelectorAll('.copy').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const value = button.dataset.copy || '';
+    try {
+      await navigator.clipboard.writeText(value);
+      const original = button.textContent;
+      button.textContent = 'Скопировано';
+      setTimeout(() => { button.textContent = original; }, 1400);
+    } catch (error) {
+      button.textContent = 'Не вышло';
+    }
+  });
+});
+
+document.querySelectorAll('[data-count]').forEach((node) => {
+  const target = Number(node.dataset.count || 0);
+  let current = 0;
+  const step = Math.max(1, Math.round(target / 28));
+
+  const tick = () => {
+    current = Math.min(target, current + step);
+    node.textContent = String(current);
+    if (current < target) requestAnimationFrame(tick);
+  };
+
+  tick();
+});
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (reduceMotion.matches) {
+  document.querySelectorAll('.reveal').forEach((node) => node.classList.add('in'));
+}
+</script>
 
 </body>
 </html>
